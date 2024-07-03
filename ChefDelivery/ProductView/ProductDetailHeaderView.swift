@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct ProductDetailHeaderView: View {
+    
+    let product: ProductType
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 16) {
+            Image(product.image)
+                .resizable()
+                .scaledToFit()
+                .shadow(radius: 20)
+            
+            Text(product.name)
+                .font(.title)
+                .bold()
+                .padding(.horizontal)
+                .padding(.top)
+            
+            Text(product.description)
+                .padding(.horizontal)
+            
+            Text(product.formattedPrice)
+                .font(.title3)
+                .padding(.horizontal)
+                .bold()
+        }
     }
 }
 
-#Preview {
-    ProductDetailHeaderView()
+struct ProductDetailHeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductDetailHeaderView(product: storesMock[0].products[0])
+    }
 }

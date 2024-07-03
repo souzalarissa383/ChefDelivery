@@ -2,17 +2,34 @@
 //  OrderTypeView.swift
 //  ChefDelivery
 //
-//  Created by Larissa Souza on 02/07/24.
+//  Created by Larissa Souza on 24/06/24.
 //
 
 import SwiftUI
 
 struct OrderTypeView: View {
+    
+    let orderType: OrderType
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack(spacing: 5)   {
+                    Image(orderType.image)
+                    .resizable()
+                    .scaledToFit()
+                    .fixedSize (horizontal: false, vertical: true)
+                Text (orderType.name)
+                    .font(.system(size: 10))
+            }
+            .frame (width: 70, height: 100)
+        }
     }
-}
 
-#Preview {
-    OrderTypeView()
+
+struct OrderTypeView_Previews: PreviewProvider {
+    static var previews: some View {
+        OrderTypeView(orderType: OrderType(id: 1,
+                                           name: "Restaurantes",
+                                           image: "hamburguer"))
+        .previewLayout(.sizeThatFits)
+    }
 }

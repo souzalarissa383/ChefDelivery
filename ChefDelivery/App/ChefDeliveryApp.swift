@@ -2,7 +2,16 @@
 //  ChefDeliveryApp.swift
 //  ChefDelivery
 //
-//  Created by Larissa Souza on 02/07/24.
+//  Created by Larissa Souza on 12/06/24.
 //
 
-import Foundation
+import SwiftUI
+
+@main
+struct ChefDeliveryApp: App {
+    var body: some Scene {
+        WindowGroup {
+            HomeView()
+        }
+    }
+}

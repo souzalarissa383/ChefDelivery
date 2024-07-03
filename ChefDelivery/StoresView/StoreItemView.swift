@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct StoreItemView: View {
+    
+    // MARK: - Attributes
+    
+    var store: StoreType
+    
+    // MARK: - BodyView
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image(store.logoImage)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(25)
+                .frame(width: 50, height: 50)
+            
+            VStack(alignment: .leading) {
+                Text(store.name)
+                    .font(.subheadline)
+            }
+            
+            Spacer()
+        }
     }
 }
 
-#Preview {
-    StoreItemView()
+struct StoreItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        StoreItemView(store: storesMock[0])
+            .previewLayout(.sizeThatFits)
+    }
 }
